@@ -1,14 +1,18 @@
 import './App.css';
-import ClienteList from './components/Cliente/ClienteListado';
-import MenuList from './components/Menu/MenuListado';
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from './routes/AppRoutes';
+ 
 
 function App() {
   return (
     <div className="App">
-      <ClienteList />
-      <MenuList/>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
 
+    
     </div>
+    
   );
 }
 

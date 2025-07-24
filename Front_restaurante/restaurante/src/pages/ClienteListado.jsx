@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { getClientes, eliminarCliente } from '../../services/clienteService';
+import { getClientes, eliminarCliente } from '../services/clienteService';
 
-const ClienteList = () => {
+const ClienteListado = () => {
     const [clientes, setClientes] = useState([]);
 
     useEffect(() => {
@@ -47,4 +47,4 @@ const ClienteList = () => {
     );
 };
 
-export default ClienteList;
+export default ClienteListado;
