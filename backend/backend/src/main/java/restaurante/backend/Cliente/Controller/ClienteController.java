@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/clientes")
-@CrossOrigin(origins = "http://localhost:3000") // permite acceso desde el frontend
+@CrossOrigin(origins = "http://localhost:3000") 
 public class ClienteController {
 
     @Autowired
