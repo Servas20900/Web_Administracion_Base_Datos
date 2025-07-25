@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getMenus, eliminarMenu, crearMenu, actualizarMenu } from '../services/menuService';
 
 import ActionBar from '../components/ActionBar';
-import MenuForm from '../components/MenuForm';
+import MenuForm from '../components/Menu/MenuForm';
 import './ClienteListado.css';
 
 const MenuListado = () => {

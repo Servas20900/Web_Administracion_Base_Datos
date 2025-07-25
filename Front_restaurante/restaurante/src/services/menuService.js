@@ -6,7 +6,7 @@ export const getMenus = () => axios.get(API_URL);
 
 export const getMenu = (id) => axios.get(`${API_URL}/${id}`);
 
-export const crearMenu = (data) => axios.post(API_URL,data);
+export const crearMenu = (data) => axios.post(API_URL, data);
 
 export const actualizarMenu = (id, data) => axios.put(`${API_URL}/${id}`, data);
 

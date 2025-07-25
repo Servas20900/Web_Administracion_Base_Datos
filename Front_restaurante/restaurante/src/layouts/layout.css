@@ -7,10 +7,11 @@
   font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
 }
 
+/* Header */
 .layout-header {
   background: #2f3e46; /* dark slate */
   color: #ffffff;
-  padding: 2rem 0 1rem 0;
+  padding: 2rem 1rem 1rem 1rem;
   text-align: center;
   letter-spacing: 2px;
   font-size: 2.2rem;
@@ -18,12 +19,14 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
+/* Navigation */
 .layout-nav {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
   background: #354f52; /* muted navy */
-  padding: 1rem 0;
+  padding: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
@@ -31,17 +34,19 @@
   color: #e0e0e0;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1.1rem;
-  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 6px;
   transition: background 0.2s, color 0.2s;
 }
+
 .layout-nav a:hover,
 .layout-nav a.active {
   background: #52796f; /* desaturated teal */
   color: #ffffff;
 }
 
+/* Main Content */
 .layout-main {
   flex: 1;
   padding: 2rem 1rem;
@@ -49,13 +54,69 @@
   margin: 0 auto;
 }
 
+/* Footer */
 .layout-footer {
   text-align: center;
   margin-top: 2rem;
-  padding: 1.5rem 0 1rem 0;
+  padding: 1.5rem 1rem 1rem 1rem;
   background: #cad2c5; /* light sage */
   color: #2f3e46;
   font-size: 1rem;
   letter-spacing: 1px;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .layout-header {
+    font-size: 1.8rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .layout-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .layout-nav a {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .layout-main {
+    padding: 1.5rem 1rem;
+  }
+
+  .layout-footer {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .layout-header {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  .layout-nav {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .layout-nav a {
+    font-size: 0.95rem;
+    padding: 0.5rem;
+  }
+
+  .layout-main {
+    padding: 1rem 0.5rem;
+  }
+
+  .layout-footer {
+    font-size: 0.85rem;
+    padding: 0.8rem;
+  }
 }

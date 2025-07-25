@@ -5,12 +5,19 @@ import './layout.css';
 
 
 const navLinks = [
+  { to: '/', label: 'Home' },
   { to: '/clientes', label: 'Clientes' },
   { to: '/menus', label: 'Menú' },
   { to: '/facturas', label: 'Facturas' },
+  { to: '/detalle-facturas', label: 'Detalle Facturas' },
+  { to: '/detalle-purchase-orders', label: 'Detalle Purchase Orders' },
   { to: '/empleados', label: 'Empleados' },
-  { to: '/inventario', label: 'Inventario' },
-  { to: '/proveedores', label: 'Proveedores' },
+  { to: '/puestos', label: 'Puestos' },
+  { to: '/ingrediente-menus', label: 'Ingrediente Menus' },
+  { to: '/purchase-orders', label: 'Purchase Orders' },
+  { to: '/store-ingredientes', label: 'Store Ingredientes' },
+  { to: '/vendedores', label: 'Vendedores' },
+  { to: '/proveedores', label: 'Proveedores' }
 ];
 
 const MainLayout = ({ children }) => {
@@ -18,7 +25,7 @@ const MainLayout = ({ children }) => {
   return (
     <div className="layout">
       <header className="layout-header">
-        <p>Sabor Tico</p>
+        <h2>Sabor Tico</h2>
       </header>
 
       <nav className="layout-nav">
