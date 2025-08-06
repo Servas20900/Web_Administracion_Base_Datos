@@ -38,7 +38,14 @@ const StoreIngredienteForm = ({ open, onClose, onSubmit, initialData }) => {
                 <h3>{initialData ? 'Editar Ingrediente' : 'Agregar Ingrediente'}</h3>
                 <form onSubmit={handleSubmit}>
                     <label>Nombre del Ingrediente:</label>
-                    <input name="nombre_ingrediente" value={form.nombre_ingrediente} onChange={handleChange} required />
+                    <input
+                        name="nombre_ingrediente"
+                        value={typeof form.nombre_ingrediente === 'object'
+                            ? (form.nombre_ingrediente.nombre_ingrediente || form.nombre_ingrediente.id_ingrediente || JSON.stringify(form.nombre_ingrediente))
+                            : form.nombre_ingrediente}
+                        onChange={handleChange}
+                        required
+                    />
                     <label>Cantidad:</label>
                     <input name="cantidad" type="number" value={form.cantidad} onChange={handleChange} required />
                     <div style={{marginTop: '1rem'}}>

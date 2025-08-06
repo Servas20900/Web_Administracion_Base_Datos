@@ -10,12 +10,12 @@ const navLinks = [
   { to: '/menus', label: 'Menú' },
   { to: '/facturas', label: 'Facturas' },
   { to: '/detalle-facturas', label: 'Detalle Facturas' },
-  { to: '/detalle-purchase-orders', label: 'Detalle Purchase Orders' },
+  { to: '/detalle-purchaseorders', label: 'Detalle Purchase Orders' },
   { to: '/empleados', label: 'Empleados' },
   { to: '/puestos', label: 'Puestos' },
   { to: '/ingrediente-menus', label: 'Ingrediente Menus' },
-  { to: '/purchase-orders', label: 'Purchase Orders' },
-  { to: '/store-ingredientes', label: 'Store Ingredientes' },
+  { to: '/purchaseorders', label: 'Purchase Orders' },
+  { to: '/storeingredientes', label: 'Store Ingredientes' },
   { to: '/vendedores', label: 'Vendedores' },
   { to: '/proveedores', label: 'Proveedores' }
 ];

@@ -63,16 +63,22 @@ const StoreIngredienteListado = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {ingredientes.map(ingrediente => (
-                            <tr key={ingrediente.id_ingrediente}>
-                                <td>{ingrediente.nombre_ingrediente}</td>
-                                <td>{ingrediente.cantidad}</td>
-                                <td>
-                                    <button className="delete-btn" onClick={() => handleEliminar(ingrediente.id_ingrediente)}>Eliminar</button>
-                                    <button className="action-btn update" style={{marginLeft: '0.5rem'}} onClick={() => handleEdit(ingrediente)}>Editar</button>
-                                </td>
-                            </tr>
-                        ))}
+                        {ingredientes.map(ingrediente => {
+                            // Si nombre_ingrediente es un objeto, mostrar nombre_platillo o id_platillo
+                            let nombre = typeof ingrediente.nombre_ingrediente === 'object'
+                                ? ingrediente.nombre_ingrediente.nombre_ingrediente || ingrediente.nombre_ingrediente.id_ingrediente
+                                : ingrediente.nombre_ingrediente;
+                            return (
+                                <tr key={String(ingrediente.id_ingrediente) + '-' + (typeof nombre === 'string' ? nombre : JSON.stringify(nombre))}>
+                                    <td>{nombre}</td>
+                                    <td>{ingrediente.cantidad}</td>
+                                    <td>
+                                        <button className="delete-btn" onClick={() => handleEliminar(ingrediente.id_ingrediente)}>Eliminar</button>
+                                        <button className="action-btn update" style={{marginLeft: '0.5rem'}} onClick={() => handleEdit(ingrediente)}>Editar</button>
+                                    </td>
+                                </tr>
+                            );
+                        })}
                     </tbody>
                 </table>
             </div>

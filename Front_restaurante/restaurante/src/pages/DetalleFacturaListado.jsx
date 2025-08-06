@@ -69,8 +69,8 @@ const DetalleFacturaListado = () => {
                     <tbody>
                         {detalles.map(detalle => (
                             <tr key={detalle.id_detalle_factura}>
-                                <td>{detalle.factura}</td>
-                                <td>{detalle.platillo}</td>
+                                <td>{detalle.factura?.id_factura || detalle.factura}</td>
+                                <td>{detalle.platillo?.nombre || detalle.platillo?.id_platillo || detalle.platillo}</td>
                                 <td>{detalle.precio}</td>
                                 <td>{detalle.cantidad}</td>
                                 <td>

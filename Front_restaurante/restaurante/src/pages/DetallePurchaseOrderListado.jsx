@@ -1,15 +1,24 @@
+
 import React, { useEffect, useState } from 'react';
 import { getDetallePurchaseOrders, eliminarDetallePurchaseOrder, crearDetallePurchaseOrder, actualizarDetallePurchaseOrder } from '../services/detallepurchaseordersService';
+import { getPurchaseOrders } from '../services/purchaseordersService';
+import { getStoreIngredientes } from '../services/storeingredientesService';
 import ActionBar from '../components/ActionBar';
 import DetallePurchaseOrderForm from '../components/DetallePurchaseOrders/DetallePurchaseOrderForm';
 
 const DetallePurchaseOrderListado = () => {
+
     const [detalles, setDetalles] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
     const [editData, setEditData] = useState(null);
+    const [purchaseorders, setPurchaseOrders] = useState([]);
+    const [storeingredientes, setStoreIngredientes] = useState([]);
+
 
     useEffect(() => {
         cargarDetalles();
+        getPurchaseOrders().then(res => setPurchaseOrders(res.data));
+        getStoreIngredientes().then(res => setStoreIngredientes(res.data));
     }, []);
 
     const cargarDetalles = async () => {
@@ -52,6 +61,7 @@ const DetallePurchaseOrderListado = () => {
         cargarDetalles();
     };
 
+
     return (
         <div>
             <h2>Lista de Detalles de Purchase Order</h2>
@@ -69,7 +79,7 @@ const DetallePurchaseOrderListado = () => {
                     <tbody>
                         {detalles.map(detalle => {
                             let ordenCompraDesc = detalle.ordenCompra?.id_po || detalle.ordenCompra;
-                            let ingredienteDesc = detalle.ingrediente?.nombre || detalle.ingrediente;
+                            let ingredienteDesc = detalle.ingrediente?.nombre || detalle.ingrediente?.id_ingrediente || detalle.ingrediente;
                             return (
                                 <tr key={detalle.id_detalle_po}>
                                     <td>{ordenCompraDesc}</td>
@@ -86,7 +96,14 @@ const DetallePurchaseOrderListado = () => {
                     </tbody>
                 </table>
             </div>
-            <DetallePurchaseOrderForm open={modalOpen} onClose={() => { setModalOpen(false); setEditData(null); }} onSubmit={handleFormSubmit} initialData={editData} />
+            <DetallePurchaseOrderForm
+                open={modalOpen}
+                onClose={() => { setModalOpen(false); setEditData(null); }}
+                onSubmit={handleFormSubmit}
+                initialData={editData}
+                purchaseorders={purchaseorders}
+                storeingredientes={storeingredientes}
+            />
         </div>
     );
 };
